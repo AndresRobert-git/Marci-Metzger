@@ -969,14 +969,13 @@ h3 em {
      .service-item h3 { min-height: 2.5em; }
    }
 
-   @media (max-width: 700px) {
-     .photo-caption {
-       display: flex;
-       flex-direction: column;
-       gap: 4px;
-     }
-   }
-
       @media (max-width: 1000px) {
      .services-grid { max-width: none; }
    }
+
+   .photo-caption {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
