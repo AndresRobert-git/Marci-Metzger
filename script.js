@@ -17,8 +17,6 @@ mainNav.querySelectorAll("a").forEach((link) => {
 
 document.querySelector("#year").textContent = new Date().getFullYear();
 
-// The source brief does not provide a live property-search API.
-// This makes the search UI useful without pretending it searches a real database.
 document.querySelector("#property-search").addEventListener("submit", (event) => {
   event.preventDefault();
   const data = new FormData(event.currentTarget);
@@ -55,7 +53,7 @@ document.querySelector("#contact-form").addEventListener("submit", (event) => {
   window.location.href = mailto;
 });
 
-// If an image URL fails, use its declared fallback where available.
+
 document.querySelectorAll("img[data-fallback]").forEach((img) => {
   img.addEventListener("error", () => {
     if (img.dataset.fallback && img.src !== img.dataset.fallback) {
@@ -70,11 +68,11 @@ function scrollToTop(duration = 1000) {
   const start = window.scrollY;
   const startTime = performance.now();
   const root = document.documentElement;
-  root.style.scrollBehavior = "auto"; // stop CSS smooth scroll fighting the animation
+  root.style.scrollBehavior = "auto"; 
 
   function step(now) {
     const progress = Math.min((now - startTime) / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+    const eased = 1 - Math.pow(1 - progress, 3); 
     window.scrollTo(0, start * (1 - eased));
     if (progress < 1) requestAnimationFrame(step);
     else root.style.scrollBehavior = "";
