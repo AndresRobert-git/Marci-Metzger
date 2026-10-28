@@ -914,3 +914,36 @@ h3 em {
 .service-item p{font-size:13px;color:var(--muted);line-height:1.9;margin:0}
 @media(max-width:1000px){.services-grid{grid-template-columns:1fr;gap:34px;max-width:620px}}
 @media(max-width:700px){.services-section{padding-top:72px;padding-bottom:72px}.service-item h3{font-size:25px}}
+
+/* Equal feature cards */
+.feature-grid {
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;          /* both cards take the same height */
+}
+
+.feature-grid .feature-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-grid .feature-card img {
+  height: 240px;                 /* same image height for both */
+  min-height: 0;
+  object-fit: cover;
+}
+
+.feature-grid .feature-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;                       /* body fills the rest of the card */
+}
+
+.feature-grid .feature-body a {
+  margin-top: auto;              /* link sits at the bottom of both cards */
+  align-self: flex-start;
+}
+
+@media (max-width: 700px) {
+  .feature-grid { grid-template-columns: 1fr; }
+  .feature-grid .feature-card img { height: 220px; }
+}
